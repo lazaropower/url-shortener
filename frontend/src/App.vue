@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import UrlShortenerForm from './components/UrlShortenerForm.vue';
 </script>
 
 <template>
-  <header>
-  </header>
+  <header></header>
 
   <main>
-
+    <UrlShortenerForm />
   </main>
 </template>
 
