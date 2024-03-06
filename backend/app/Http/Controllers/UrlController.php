@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UrlController extends Controller
 {
-    public function shortenUrl(Request $request)
+    public function shortenUrl(Request $request): JsonResponse
     {
         // Validate the request data
         $validator = Validator::make($request->all(), [
