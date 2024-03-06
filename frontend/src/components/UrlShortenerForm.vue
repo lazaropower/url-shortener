@@ -97,17 +97,16 @@ form {
 }
 
 @media screen and (max-width: 600px) {
-    input {
-      max-width: 100%;
-    }
-
-    form {
-      max-width: 100%;
-    }
-
-    .error {
-      font-size: 16px;
-    }
+  input {
+    max-width: 100%;
   }
 
+  form {
+    max-width: 100%;
+  }
+
+  .error {
+    font-size: 16px;
+  }
+}
 </style>

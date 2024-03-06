@@ -68,16 +68,15 @@ const apiService = {
         }
       );
 
-    if (response.data.originalUrl) {
-      return response.data.originalUrl;
-    } else {
-      throw new Error('Invalid response from the server');
-    }
-
+      if (response.data.originalUrl) {
+        return response.data.originalUrl;
+      } else {
+        throw new Error('Invalid response from the server');
+      }
     } catch (error) {
       throw new Error('Failed to fetch the original URL');
     }
-  } 
+  }
 };
 
 export default apiService;
