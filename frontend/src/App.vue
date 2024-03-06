@@ -3,38 +3,55 @@ import UrlShortenerForm from './components/UrlShortenerForm.vue';
 </script>
 
 <template>
-  <header></header>
-
   <main>
+    <h1>URL Shortener</h1>
+    <h2>Enter your url, press submit and we will shorten it for you!</h2>
     <UrlShortenerForm />
   </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<style>
+  h1 {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 76px;
+    line-height: 95px;
+    background: linear-gradient(to right, #42D392, #5C93E4, #b4e45c, #5C93E4);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+  h2 {
+    margin-bottom: 20px;
+  }
 
-@media (min-width: 1024px) {
-  header {
+  main {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vh;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 40px; 
+      line-height: 45px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    main {
+      padding-right: 20px;
+      padding-left: 20px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
