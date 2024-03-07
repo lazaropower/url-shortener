@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('urls', function (Blueprint $table) {
             $table->id();
-            $table->string('original_url')->unique();
-            $table->string('hash')->unique();
+            $table->string('original_url');
+            $table->string('hash');
+            $table->string('folder')->unique();
             $table->timestamps();
         });
     }

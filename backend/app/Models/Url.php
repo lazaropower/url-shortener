@@ -16,7 +16,8 @@ class Url extends Model
      */
     protected $fillable = [
         'original_url',
-        'hash'
+        'hash',
+        'folder'
     ];
 
     /**
@@ -27,5 +28,6 @@ class Url extends Model
     protected $casts = [
         'original_url' => 'string',
         'hash' => 'string',
+        'folder' => 'string'
     ];
 }
