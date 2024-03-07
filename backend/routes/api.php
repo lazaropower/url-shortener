@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/shorten-url', [UrlController::class, 'shortenUrl']);
+Route::post('/fetch-original', [UrlController::class, 'fetchOriginalUrl']);

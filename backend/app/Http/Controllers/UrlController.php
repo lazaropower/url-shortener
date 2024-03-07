@@ -44,6 +44,26 @@ class UrlController extends Controller
         return response()->json(['hash' => $hash], 200);
     }
 
+    public function fetchOriginalUrl(Request $request): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'hash' => 'required|max:6|string'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+
+        $hash = $request->input('hash');
+
+        $url = Url::where('hash', $hash)->first();
+        
+        if ($url) {
+            return response()->json(['originalUrl' => $url->original_url], 200);
+        }
+        return response()->json(['error' => 'Url not found'], 404);
+    }
+
     private function generateHash(string $url): string
     {
         $hashedUrl = md5($url);
