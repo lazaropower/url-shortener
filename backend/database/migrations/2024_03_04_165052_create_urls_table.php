@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('original_url');
             $table->string('hash');
-            $table->string('folder')->unique();
+            $table->string('folder');
             $table->timestamps();
         });
     }
