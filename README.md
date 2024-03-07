@@ -8,6 +8,30 @@ You need to have the following things intalled on your machine:
 * [Docker](https://www.docker.com/products/docker-desktop/).
 * [Node.js](https://nodejs.org/en/download).
 
+## How it works?
+
+You can introduce any URL you want, your desired folder and click on submit. Afer that we will check if there is any folder and url saved already in the database and just return it. If the url is new, we will make a request to the [Google Safe Browsing API](https://safebrowsing.google.com/) to make sure the URL does not contains any malware. 
+
+In case of malware, we will not save or provide any shortened url. If the url is clean, we will proceed saving in the database the original url, the generated 6 characters hash and the folder and returning the shortened url to the Front-End.
+
+Home page:
+
+![image](https://github.com/lazaropower/url-shortener/assets/20268108/7bb1db92-6ea8-47c8-ade0-2925be3002f4)
+![image](https://github.com/lazaropower/url-shortener/assets/20268108/56222e0f-8c5d-4740-87e3-a7ab6b1a1483)
+![image](https://github.com/lazaropower/url-shortener/assets/20268108/0c6fb74c-608a-4d6d-8579-8f3778c74580)
+
+Loading page:
+
+![image](https://github.com/lazaropower/url-shortener/assets/20268108/aa9aedb1-0333-4eee-bb3a-595d847872d2)
+
+
+404 Not Found:
+
+![image](https://github.com/lazaropower/url-shortener/assets/20268108/e03c322b-16ab-4a36-8f78-05792253b6ca)
+
+## Architecture
+![Untitled-2024-02-19-1854](https://github.com/lazaropower/url-shortener/assets/20268108/43e0c9c2-bbaa-41fc-bed5-31e8e314ae2e)
+
 ## How to launch the project?
 
 ### Back-End
@@ -51,7 +75,6 @@ npm run dev   # This will launch the Front-End.
 
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
-
 
 
 ## License
