@@ -1,4 +1,6 @@
 <template>
+  <h1>URL Shortener</h1>
+  <h2>Enter your url, press submit and we will shorten it for you!</h2>
   <form @submit.prevent="submitForm">
     <div v-if="shortenedUrl">
       <a :href="originalUrl">{{ shortenedUrl }}</a>
@@ -12,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import apiService from '@/services/ApiService';
 
 interface UrlShortenerFormProps {

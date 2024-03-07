@@ -1,6 +1,6 @@
 import axios, { type AxiosResponse } from 'axios';
 
-const baseURL: string = window.location.origin;
+const baseUrl: string = window.location.origin;
 const backUrl: string = import.meta.env.VITE_BACKEND_URL;
 const googleApiKey: string = import.meta.env.VITE_GOOGLE_API_KEY;
 
@@ -23,7 +23,7 @@ const apiService = {
       );
 
       if (response.data.hash) {
-        const shortenUrl = `${baseURL}/${response.data.hash}`;
+        const shortenUrl = `${baseUrl}/${response.data.hash}`;
         return shortenUrl;
       } else {
         throw new Error('Invalid response from the server');
@@ -58,12 +58,11 @@ const apiService = {
       throw new Error('Failed to validate URL security.');
     }
   },
-  async fetchOriginalUrl(folder: string, hash: string): Promise<string> {
+  async fetchOriginalUrl(hash: string): Promise<string> {
     try {
       const response: AxiosResponse<FecthOriginalUrlResponse> = await axios.post(
         `${backUrl}api/fetch-original`,
         {
-          folder: folder,
           hash: hash
         }
       );

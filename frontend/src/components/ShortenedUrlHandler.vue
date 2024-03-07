@@ -1,18 +1,36 @@
 <template>
   <div>
-    <p>Loading...</p>
+    <h2>Loading...</h2>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
 import apiService from '@/services/ApiService';
+import { defineComponent, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
-  created() {
-    // Extract the hash and folder from URL
+  setup() {
+    const router = useRouter();
+    onMounted(async () => {
+      try {
+        // Extract the hash from the URL
+        const hash = router.currentRoute.value.params.hash;
+
+        // Fetch the original URL from Back-End
+        const originalUrl = await apiService.fetchOriginalUrl(hash as string);
+
+        // Open original URL
+        window.location.href = originalUrl;
+
+      } catch (error) {
+        // In case of error render 404 page
+        router.push('/404');
+      }
+    });
   }
 });
+
 </script>
 
 <style></style>

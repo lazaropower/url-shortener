@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import UrlShortenerForm from './components/UrlShortenerForm.vue';
 </script>
 
 <template>
   <main>
-    <h1>URL Shortener</h1>
-    <h2>Enter your url, press submit and we will shorten it for you!</h2>
-    <UrlShortenerForm />
+    <router-view></router-view>
   </main>
 </template>
 
