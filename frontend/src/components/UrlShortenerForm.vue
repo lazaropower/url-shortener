@@ -1,6 +1,6 @@
 <template>
   <h1>URL Shortener</h1>
-  <h2>Enter your url, press submit and we will shorten it for you!</h2>
+  <h2>Enter your url, folder and press submit and we will shorten it for you!</h2>
   <form @submit.prevent="submitForm">
     <div v-if="shortenedUrl">
       <a :href="originalUrl">{{ shortenedUrl }}</a>
