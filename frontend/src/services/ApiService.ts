@@ -23,9 +23,7 @@ const apiService = {
           folder: folder
         }
       );
-
-      console.log(response.data);
-
+      
       if (response.data) {
         const shortenUrl = `${baseUrl}/${response.data.folder}/${response.data.hash}`;
         return shortenUrl;
