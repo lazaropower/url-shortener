@@ -6,6 +6,7 @@
       <a :href="originalUrl">{{ shortenedUrl }}</a>
     </div>
     <input type="url" v-model="originalUrl" placeholder="https://example.com" required />
+    <input type="text" maxLength="30" v-model="folder" placeholder="Your folder name, for example 'johndoe'" required />
     <div v-if="error">
       <p class="error">{{ error }}</p>
     </div>
@@ -19,6 +20,7 @@ import apiService from '@/services/ApiService';
 
 interface UrlShortenerFormProps {
   originalUrl: string;
+  folder: string;
   shortenedUrl: string;
   error: string;
 }
@@ -27,6 +29,7 @@ export default defineComponent({
   data() {
     return {
       originalUrl: '',
+      folder: '',
       shortenedUrl: '',
       error: ''
     } as UrlShortenerFormProps;
@@ -41,7 +44,7 @@ export default defineComponent({
           return;
         }
 
-        this.shortenedUrl = await apiService.shortenUrl(this.originalUrl);
+        this.shortenedUrl = await apiService.shortenUrl(this.originalUrl, this.folder);
 
         this.error = '';
       } catch (error: any) {

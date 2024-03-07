@@ -8,9 +8,10 @@ import UrlShortenerForm from './components/UrlShortenerForm.vue';
 import NotFound404 from './components/NotFound404.vue';
 
 const routes = [
-    { path: '/', component: UrlShortenerForm},
     { path: '/404', component: NotFound404},
-    { path: '/:hash', component: ShortenedUrlHandler},
+    { path: '/:folder/:hash', component: ShortenedUrlHandler},
+    { path: '/', component: UrlShortenerForm},
+    { path: '/:catchAll(.*)', redirect: '/404'}
 ];
 
 const router = createRouter({

@@ -6,6 +6,7 @@ const googleApiKey: string = import.meta.env.VITE_GOOGLE_API_KEY;
 
 interface ShortenUrlResponse {
   hash: string;
+  folder: string;
 }
 
 interface FecthOriginalUrlResponse {
@@ -13,17 +14,20 @@ interface FecthOriginalUrlResponse {
 }
 
 const apiService = {
-  async shortenUrl(url: string): Promise<string> {
+  async shortenUrl(url: string, folder: string): Promise<string> {
     try {
       const response: AxiosResponse<ShortenUrlResponse> = await axios.post(
         `${backUrl}api/shorten-url`,
         {
-          originalUrl: url
+          originalUrl: url,
+          folder: folder
         }
       );
 
-      if (response.data.hash) {
-        const shortenUrl = `${baseUrl}/${response.data.hash}`;
+      console.log(response.data);
+
+      if (response.data) {
+        const shortenUrl = `${baseUrl}/${response.data.folder}/${response.data.hash}`;
         return shortenUrl;
       } else {
         throw new Error('Invalid response from the server');
@@ -50,20 +54,19 @@ const apiService = {
         }
       );
 
-      console.log('response', response);
-
       // Check if the body is empty => url is secure
       return Object.keys(response.data).length === 0;
     } catch (error) {
       throw new Error('Failed to validate URL security.');
     }
   },
-  async fetchOriginalUrl(hash: string): Promise<string> {
+  async fetchOriginalUrl(hash: string, folder: string): Promise<string> {
     try {
       const response: AxiosResponse<FecthOriginalUrlResponse> = await axios.post(
         `${backUrl}api/fetch-original`,
         {
-          hash: hash
+          hash: hash,
+          folder: folder
         }
       );
 

@@ -14,11 +14,12 @@ export default defineComponent({
     const router = useRouter();
     onMounted(async () => {
       try {
-        // Extract the hash from the URL
+        // Extract the hash and folder from the URL
         const hash = router.currentRoute.value.params.hash;
+        const folder = router.currentRoute.value.params.folder;
 
         // Fetch the original URL from Back-End
-        const originalUrl = await apiService.fetchOriginalUrl(hash as string);
+        const originalUrl = await apiService.fetchOriginalUrl(hash as string, folder as string);
 
         // Open original URL
         window.location.href = originalUrl;
