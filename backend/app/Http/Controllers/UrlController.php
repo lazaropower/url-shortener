@@ -32,9 +32,9 @@ class UrlController extends Controller
             ->first();
 
         if ($url) {
-            return response()->json(['hash' => $url->hash], 200);
+            return response()->json(['hash' => $url->hash, 'folder' => $url->folder], 200);
         }
-
+ 
         // Generate hash
         $hash = $this->generateHash($originalUrl);
 
@@ -45,7 +45,7 @@ class UrlController extends Controller
             'hash'=> $hash
         ]);
 
-        return response()->json(['hash' => $hash], 200);
+        return response()->json(['hash' => $hash, 'folder' => $folder], 200);
     }
 
     public function fetchOriginalUrl(Request $request): JsonResponse
