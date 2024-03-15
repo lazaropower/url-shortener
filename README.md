@@ -30,7 +30,7 @@ Loading page:
 ![image](https://github.com/lazaropower/url-shortener/assets/20268108/e03c322b-16ab-4a36-8f78-05792253b6ca)
 
 ## Architecture
-![Untitled-2024-02-19-1854](https://github.com/lazaropower/url-shortener/assets/20268108/43e0c9c2-bbaa-41fc-bed5-31e8e314ae2e)
+![Untitled-2024-02-19-1854](https://github.com/lazaropower/url-shortener/assets/20268108/dab8194d-a935-4406-81fc-ef411d27bd23)
 
 ## How to launch the project?
 
@@ -46,6 +46,11 @@ DB_USERNAME=user
 DB_PASSWORD=user
 DB_ROOT_PASSWORD=user
 ```
+Also you must enter your Google Safe Browser API Key:
+```
+GOOGLE_API_KEY=your-google-api-key
+```
+
 After that, you can run the following commands:
 
 ```bash
@@ -61,7 +66,6 @@ Copy the ```.env.example``` file and rename it to ```.env```. You can configure 
 
 ```
 VITE_BACKEND_URL='http://127.0.0.1:8000/'   # By default this is the localhost url.
-VITE_GOOGLE_API_KEY='your-google-api-key'   # Your google API key.
 ```
 If you don't know how to get the Google Safe Browsing API key check [here](https://developers.google.com/safe-browsing/v4/get-started?hl=es-419).
 
