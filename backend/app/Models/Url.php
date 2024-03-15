@@ -19,15 +19,4 @@ class Url extends Model
         'hash',
         'folder'
     ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'original_url' => 'string',
-        'hash' => 'string',
-        'folder' => 'string'
-    ];
 }

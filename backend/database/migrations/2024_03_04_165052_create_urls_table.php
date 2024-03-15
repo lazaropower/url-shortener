@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('hash');
             $table->string('folder');
             $table->timestamps();
+
+            // Unique index on folder and hash
+            $table->unique(['folder', 'hash']);
         });
     }
 
