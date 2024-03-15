@@ -37,13 +37,6 @@ export default defineComponent({
   methods: {
     async submitForm() {
       try {
-        const isSecureUrl = await apiService.checkSecurity(this.originalUrl);
-
-        if (!isSecureUrl) {
-          this.error = 'The URL is not secure.';
-          return;
-        }
-
         this.shortenedUrl = await apiService.shortenUrl(this.originalUrl, this.folder);
 
         this.error = '';
